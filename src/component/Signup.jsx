@@ -5,18 +5,17 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Signup() {
-
   let [load, setload] = useState(true);
   let nav = useNavigate();
   let [fromData, setFormData] = useState({
     firstName: "",
     lastName: "",
     phone: "",
-    userName:"",
+    userName: "",
     address: "",
     email: "",
     password: "",
-    role:"Customer",
+    role: "Customer",
   });
 
   function getFormData(e) {
@@ -31,19 +30,18 @@ export default function Signup() {
       let MSGres = await axiospost(fromData, "Register");
       nav("/signin");
       console.log(MSGres);
-    }
-    catch (error) {
+    } catch (error) {
       setload(true);
       if (error.message === "Request failed with status code 500") {
-        toast.error("please enter a valid values", {
+        toast.error("an error occurred , try again 😊", {
           position: "top-right",
         });
       } else {
-        toast.error("An error occurred!", {
+        toast.error(error.response.data, {
           position: "top-right",
         });
       }
-      console.error("Error:", error);
+      //console.error("Error:", error);
     }
   }
 
@@ -107,7 +105,11 @@ export default function Signup() {
           name="password"
           id="password"
         />
-        <button type="submit" className="btn btn-primary float-end">
+        <button
+          type="submit"
+          className="btn btn-primary float-end btnSing"
+          هىلف
+        >
           {load ? "SignUp" : <i className="fa fa-spinner fa-spin"></i>}
         </button>
       </form>

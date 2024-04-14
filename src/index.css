@@ -160,7 +160,17 @@ img {
   background-color: #020914;
 }
 /* -------------------------------------------------------------------- */
-.myform input{
+.myform input {
   background-color: transparent;
   border-color: #a8a8a83d;
+}
+
+/* ------------------------------------------------------------------------- */
+
+@media (max-width: 500px) {
+  .btnSing {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+  }
 }

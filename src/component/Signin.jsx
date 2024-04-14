@@ -31,11 +31,11 @@ export default function Signin() {
     } catch (error) {
       setload(true);
       if (error.message === "Request failed with status code 401") {
-        toast.error("Invalid email or password", {
+        toast.error(error.response.data , {
           position: "top-right",
         });
       } else {
-        toast.error("An error occurred!", {
+        toast.error("an error occurred , try again 😊", {
           position: "top-right",
         });
       }
@@ -69,7 +69,7 @@ export default function Signin() {
             Register
           </Link>{" "}
         </p>
-        <button type="submit" className="btn btn-primary float-end">
+        <button type="submit" className="btn btn-primary float-end btnSing">
           {load ? "SignIn" : <i className="fa fa-spinner fa-spin"></i>}
         </button>
       </form>
